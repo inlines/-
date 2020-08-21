@@ -1,0 +1,48 @@
+<div class="create-transfer__container">
+  <h1>Создание перевода</h1>
+  <div class="create-transfer__form-container">
+    <form
+      class="create-transfer__form"
+      [formGroup]="form"
+    >
+      <div class="create-transfer__row">
+        <div class="create-transfer__card-container">
+          <label >
+            Номер:
+            <input mask="0000-0000-0000-0000" type="text" [formControlName]="formControls.senderCardNum" >
+          </label>
+        
+          <label >
+            ФИО держателя:
+            <input type="text" [formControlName]="formControls.senderName">
+          </label>
+
+          <label >
+            Активна до
+            <app-year-month-selector
+              [monthInput]="form.controls['activeTillMonth']"
+              [yearInput]="form.controls['activeTillYear']"
+            >
+            </app-year-month-selector>
+          </label>
+        </div>
+
+        <div class="create-transfer__card-container">
+          <label>
+            Карта получателя:
+            <input mask="0000-0000-0000-0000" type="text" [formControlName]="formControls.receiverCardNum">
+          </label>
+        </div>
+      </div>
+      <div class="create-transfer__row">
+        <label>
+          Сумма:
+          <input mask="0*" type="text" [formControlName]="formControls.amount">
+        </label>
+        <button (click)="submitHandler()">
+          Перевести
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

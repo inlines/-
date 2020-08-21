@@ -1,0 +1,52 @@
+<div class="transfer-history__container">
+  <h1>История переводов</h1>
+  <div class="transfer-history__list-container">
+    <div class="transfer-history__row">
+      <div class="transfer-history__col-1">
+        {{transferHeaders[0]}}
+      </div>
+      <div class="transfer-history__col-2">
+        {{transferHeaders[1]}}
+      </div>
+      <div class="transfer-history__col-3">
+        {{transferHeaders[2]}}
+      </div>
+      <div class="transfer-history__col-4">
+        {{transferHeaders[3]}}
+      </div>
+      <div class="transfer-history__col-5">
+        {{transferHeaders[4]}}
+      </div>
+      <div class="transfer-history__col-6">
+        {{transferHeaders[5]}}
+      </div>
+    </div>
+    <div class="transfer-history__row" *ngFor="let item of transferListItems; index as i">
+      <div class="transfer-history__col-1">
+        {{item.id}}
+      </div>
+      <div class="transfer-history__col-2">
+        {{item.senderCardDisplayName}}
+      </div>
+      <div class="transfer-history__col-3">
+        {{item.receiverCardDisplayName}}
+      </div>
+      <div class="transfer-history__col-4">
+        {{item.amount}}
+      </div>
+      <div class="transfer-history__col-5">
+        {{item.date}}
+      </div>
+      <div class="transfer-history__col-6">
+        <div class="transfer-history__buttons-container">
+          <button (click)="repeatTransfer(item)">
+            повторить
+          </button>
+          <button (click)="removeTransfer(item, i)">
+            удалить
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

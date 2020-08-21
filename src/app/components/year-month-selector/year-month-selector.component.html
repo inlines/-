@@ -1,0 +1,9 @@
+<div class="year-month-selector__container">
+  <select [ngModel]="selectedMonth" (ngModelChange)="onChangeMonth($event)">
+    <option *ngFor="let m of months">{{m}}</option>
+  </select>
+
+  <select [ngModel]="selectedYear" (ngModelChange)="onChangeYear($event)">
+    <option *ngFor="let y of years">{{y}}</option>
+  </select>
+</div>
